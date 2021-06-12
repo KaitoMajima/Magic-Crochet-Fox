@@ -34,6 +34,7 @@ namespace KaitoMajima
         }
         private InputAction movementAction;
         [HideInInspector] public Action<HealthState> OnHealthChanged;
+        private InputAction aimAction;
 
         [HideInInspector] public Action<int, IActor> OnDamageTaken {get; set;}
 
