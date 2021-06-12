@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/_src/Scenes/MainMenuTemplate.unity
     guid: 517a160bd7e81f04aa28fe276fa60105
   - enabled: 1
-    path: Assets/_src/Scenes/TopDownMovementTemplate.unity
-    guid: cdc21b2e3afc79548814931f78eba5fe
+    path: Assets/_src/Scenes/Stage 1.unity
+    guid: d8aab3783eee12948b3dbd9d3ab55f45
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 825bdd4dfcd22994e895fa11c812e322, type: 2}

@@ -8,17 +8,22 @@ namespace KaitoMajima
 {
     public class RadialTimer : MonoBehaviour
     {
-        [SerializeField] private ChangeValue valueChanger;
+        [SerializeField] private EnemyHealth enemyHealth;
         [SerializeField] private Image image;
 
-        private void Start()
+        private void Awake()
         {
-            valueChanger.onValueChanged += ChangeTimer;
+            enemyHealth.onHealthChanged += ChangeTimer;
         }
 
-        private void ChangeTimer(float value)
+        private void ChangeTimer(HealthState healthState)
         {
-            image.fillAmount = value;
+            image.fillAmount = (float)healthState.Health / healthState.MaxHealth;
+        }
+
+        private void OnDestroy()
+        {
+            enemyHealth.onHealthChanged -= ChangeTimer;
         }
     }
 }

@@ -11917,6 +11917,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4281630493418267607, guid: 0c62889b41f16c94b885e26e16f1ac20, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Stage 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4281630493591819318, guid: 0c62889b41f16c94b885e26e16f1ac20, type: 3}
       propertyPath: serializationData.Prefab
       value: 

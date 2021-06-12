@@ -7,5 +7,7 @@ namespace KaitoMajima
     public class ProjectileCollisionIgnorer : MonoBehaviour
     {
         public bool activated = true;
+
+        public bool explodeOnImpact = false;
     }
 }

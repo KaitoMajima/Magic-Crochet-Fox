@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace KaitoMajima
 {
@@ -17,6 +18,9 @@ namespace KaitoMajima
         private Coroutine aliveCoroutine;
 
         public Action<ProjectileContactData> onProjectileContact;
+
+        public UnityEvent onProjectileExplosion;
+
         private void Start()
         {
             aliveCoroutine = StartCoroutine(StartAliveTimer(maxAliveTime));
@@ -39,6 +43,7 @@ namespace KaitoMajima
         private void Explode()
         {
             Destroy(gameObject);
+            onProjectileExplosion?.Invoke();
         }
 
         private void OnTriggerEnter2D(Collider2D col)
@@ -49,7 +54,12 @@ namespace KaitoMajima
             if(col.TryGetComponent(out ProjectileCollisionIgnorer projIgnorer))
             {
                 if(projIgnorer.activated)
+                {
+                    if(projIgnorer.explodeOnImpact)
+                        Explode();
                     return;
+                }
+                    
             }
                     
             var projData = new ProjectileContactData(originalHolder, col.transform);
