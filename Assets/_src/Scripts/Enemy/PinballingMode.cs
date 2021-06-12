@@ -75,6 +75,7 @@ namespace KaitoMajima
                 if(pinballer.activated)
                     return;
             }
+            onPinballCount?.Invoke();
             enemyHealth.Damage(fixedDamage);
         }
     }
