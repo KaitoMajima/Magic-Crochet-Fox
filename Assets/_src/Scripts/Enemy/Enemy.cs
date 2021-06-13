@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace KaitoMajima
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : MonoBehaviour, IActor
     {
         public enum EnemyState
         {

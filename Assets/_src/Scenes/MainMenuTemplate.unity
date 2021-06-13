@@ -11929,8 +11929,68 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 4281630493816888525, guid: 0c62889b41f16c94b885e26e16f1ac20, type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 4281630494370146170, guid: 0c62889b41f16c94b885e26e16f1ac20, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281630494370146170, guid: 0c62889b41f16c94b885e26e16f1ac20, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 322
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281630494370146170, guid: 0c62889b41f16c94b885e26e16f1ac20, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -82
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281630494370146173, guid: 0c62889b41f16c94b885e26e16f1ac20, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281630494370146174, guid: 0c62889b41f16c94b885e26e16f1ac20, type: 3}
+      propertyPath: tweenSettings.duration
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281630494370146174, guid: 0c62889b41f16c94b885e26e16f1ac20, type: 3}
+      propertyPath: tweenSettings.easeType
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4281630494370146169, guid: 0c62889b41f16c94b885e26e16f1ac20, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0c62889b41f16c94b885e26e16f1ac20, type: 3}
+--- !u!1 &4281630494438879204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4281630494370146171, guid: 0c62889b41f16c94b885e26e16f1ac20, type: 3}
+  m_PrefabInstance: {fileID: 4281630494438879203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4281630494438879205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4281630494438879204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 57e75c2513ddfbc4fb808b518c0bf540, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!4 &4423787258704567196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 466766217174549206, guid: 11ab0ecad2ddc3e4b844be55342638e3, type: 3}

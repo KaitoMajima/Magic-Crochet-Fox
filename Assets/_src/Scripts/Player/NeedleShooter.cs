@@ -18,8 +18,15 @@ namespace KaitoMajima
         [SerializeField] private Transform bulletFirePoint;
         [SerializeField] private Transform shooterHolder;
         [SerializeField] private TransformReference reticleTarget;
+        [SerializeField] private int needleMaxCount;
+        private int currentNeedleCount;
 
+        public static Action onRetrieveNeedle;
+
+        public Action<int> onNeedleCountChanged;
         [SerializeField] private UnityEvent onShoot;
+
+
         private InputAction fireAction;
         private InputAction aimAction;
         public Vector2 RawMousePosition { get; private set; }
@@ -41,8 +48,17 @@ namespace KaitoMajima
             fireAction.performed += PullTrigger;
             fireAction.canceled += ReleaseTrigger;
 
-            
-        }  
+            currentNeedleCount = needleMaxCount;
+            onNeedleCountChanged?.Invoke(currentNeedleCount);
+
+            onRetrieveNeedle += AddNeedle;
+        }
+
+        private void AddNeedle()
+        {
+            currentNeedleCount++;
+            onNeedleCountChanged?.Invoke(currentNeedleCount);
+        }
 
         private void InputMousePosition(InputAction.CallbackContext context)
         {
@@ -59,13 +75,18 @@ namespace KaitoMajima
         }
         public override void Use(Transform target)
         {
+            if(currentNeedleCount <= 0)
+                return;
+            
+            currentNeedleCount--;
+            onNeedleCountChanged?.Invoke(currentNeedleCount);
             OnWeaponUse?.Invoke();
             
             var projObj = Instantiate(projectilePrefab, bulletFirePoint.position, 
             Quaternion.FromToRotation(Vector2.right, target.position - bulletFirePoint.position));
 
             onShoot?.Invoke();
-            
+
             var projScript = projObj.GetComponent<Projectile>();
             projScript.originalHolder = transform;
             IsFiring = true;
@@ -81,6 +102,8 @@ namespace KaitoMajima
         {
             fireAction.performed -= PullTrigger;
             fireAction.canceled -= ReleaseTrigger;
+
+            onRetrieveNeedle -= AddNeedle;
         }
     }
 }

@@ -16,6 +16,8 @@ namespace KaitoMajima
 
         [SerializeField] private SendAudio initialSound;
 
+        private bool hasQueuedExplosion;
+
         private float aliveTimer;
         private Coroutine aliveCoroutine;
 
@@ -44,11 +46,13 @@ namespace KaitoMajima
                 yield return null;
             }
 
+            NeedleShooter.onRetrieveNeedle?.Invoke();
             Explode();
         }
 
         private void Explode()
         {
+            hasQueuedExplosion = true;
             Destroy(gameObject);
             onProjectileExplosion?.Invoke();
         }
@@ -63,12 +67,20 @@ namespace KaitoMajima
                 if(projIgnorer.activated)
                 {
                     if(projIgnorer.explodeOnImpact)
+                    {
+                        NeedleShooter.onRetrieveNeedle?.Invoke();
+                        StopCoroutine(aliveCoroutine);
                         Explode();
+                        
+                    }
+                        
                     return;
                 }
                     
             }
-                    
+            if(hasQueuedExplosion)
+                return;
+
             var projData = new ProjectileContactData(originalHolder, col.transform);
             onProjectileContact?.Invoke(projData);
             onProjectileHit?.Invoke();

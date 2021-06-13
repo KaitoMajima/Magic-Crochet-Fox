@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 using Sirenix.OdinInspector;
+using UnityEngine.Events;
+using UnityEngine.Playables;
 
 namespace KaitoMajima
 {
@@ -14,8 +16,9 @@ namespace KaitoMajima
         [SerializeField] private Rigidbody2D playerRigidbody;
         [SerializeField] private Transform groundDetectionTransform;
         [SerializeField] private TweenController[] damageAnimation;
-        [SerializeField] private SendAudio damageSound;
-        [SerializeField] private SendAudio deathSound;
+        [SerializeField] private PlayableDirector deathCutscene;
+
+
         [SerializeField] private float groundDetectionRadius;
         [SerializeField] private LayerMask groundMask;
         [SerializeField] private float maxFallToleration = 0.4f;
@@ -34,18 +37,24 @@ namespace KaitoMajima
         }
         private InputAction movementAction;
         [HideInInspector] public Action<HealthState> OnHealthChanged;
+
         private InputAction aimAction;
 
         [HideInInspector] public Action<int, IActor> OnDamageTaken {get; set;}
 
+        public UnityEvent OnDamage;
+        private InputActionMap playerActionMap;
+
         private void Start()
         {
-            var playerActionMap = playerInput.actions.FindActionMap("Player");
+            playerActionMap = playerInput.actions.FindActionMap("Player");
             playerActionMap.Enable();
 
             movementAction = playerActionMap.FindAction("Movement");
             movementAction.performed += InputMovement;
 
+
+            healthState.Health = healthState.MaxHealth;
         }
 
         private void Update()
@@ -107,6 +116,8 @@ namespace KaitoMajima
 
             OnHealthChanged?.Invoke(healthState);
             OnDamageTaken?.Invoke(damage, actor); 
+            OnDamage?.Invoke();
+
             if(healthState.Health <= 0)
             {
                 healthState.Health = 0;
@@ -118,7 +129,6 @@ namespace KaitoMajima
                 {
                     animation.Activate();
                 }
-                damageSound?.TriggerSound();
             }
             
             return true;
@@ -129,7 +139,9 @@ namespace KaitoMajima
             moveInput.MoveVector = Vector2.zero;
             movementState.Velocity = Vector2.zero;
             playerRigidbody.simulated = false;
-            deathSound?.TriggerSound();
+
+            playerActionMap.Disable();
+            deathCutscene?.Play();
         }
 
         private void OnDrawGizmosSelected()

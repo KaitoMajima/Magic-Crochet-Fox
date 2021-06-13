@@ -82,6 +82,7 @@ namespace KaitoMajima
         public void Die()
         {
             onEnemyDeath?.Invoke();
+            NeedleShooter.onRetrieveNeedle?.Invoke();
             Destroy(gameObject);
 
         }

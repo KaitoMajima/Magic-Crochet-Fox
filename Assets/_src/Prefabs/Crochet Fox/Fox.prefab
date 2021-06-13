@@ -252,8 +252,7 @@ MonoBehaviour:
   playerRigidbody: {fileID: 919583326187141044}
   groundDetectionTransform: {fileID: 919583326187141051}
   damageAnimation: []
-  damageSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  deathCutscene: {fileID: 0}
   groundDetectionRadius: 0.58
   groundMask:
     serializedVersion: 2
@@ -264,8 +263,11 @@ MonoBehaviour:
     ZeroToMaxSpeed: 0.13
     MaxSpeedToZero: 0.16
   healthState:
-    Health: 100
-    MaxHealth: 100
+    Health: 0
+    MaxHealth: 500
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7488912803633914774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,6 +429,9 @@ MonoBehaviour:
     - Name: OnWeaponUse
       Entry: 6
       Data: 
+    - Name: onNeedleCountChanged
+      Entry: 6
+      Data: 
   playerInput: {fileID: 0}
   dynamicPlayerInputReference: {fileID: 11400000, guid: b0653924443e2c44e91f60621b529c3c, type: 2}
   mainCamera: {fileID: 0}
@@ -435,6 +440,7 @@ MonoBehaviour:
   bulletFirePoint: {fileID: 19309629}
   shooterHolder: {fileID: 919583326187141051}
   reticleTarget: {fileID: 11400000, guid: 5b0a61a8e3eef054f922f5a19166706a, type: 2}
+  needleMaxCount: 1
   onShoot:
     m_PersistentCalls:
       m_Calls:
@@ -651,7 +657,7 @@ MonoBehaviour:
   - {x: -0.29961765, y: -0.48210195, z: 0}
   m_ShapePathHash: -326092879
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2236
+  m_InstanceId: -581176
 --- !u!114 &8688326354340246476
 MonoBehaviour:
   m_ObjectHideFlags: 0
