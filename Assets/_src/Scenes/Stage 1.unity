@@ -2572,7 +2572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ApplyAfter: 2
   m_ChannelMask: 1
-  m_Gain: 0.5
+  m_Gain: 1
   m_Use2DDistance: 1
 --- !u!114 &958325125
 MonoBehaviour:
@@ -9775,7 +9775,7 @@ PrefabInstance:
       objectReference: {fileID: 492644739}
     - target: {fileID: 1605010700842463723, guid: 058c0620e56768148b4a239b0eac22dd, type: 3}
       propertyPath: currentNeedleCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1605010700842463723, guid: 058c0620e56768148b4a239b0eac22dd, type: 3}
       propertyPath: serializationData.Prefab
