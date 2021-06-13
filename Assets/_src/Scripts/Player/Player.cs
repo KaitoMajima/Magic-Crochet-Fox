@@ -43,6 +43,8 @@ namespace KaitoMajima
         [HideInInspector] public Action<int, IActor> OnDamageTaken {get; set;}
 
         public UnityEvent OnDamage;
+
+        public UnityEvent OnFall;
         private InputActionMap playerActionMap;
 
         private void Start()
@@ -108,7 +110,7 @@ namespace KaitoMajima
 
         private void Fall()
         {
-            Debug.Log("Falling!");
+            OnFall?.Invoke();
         }
         public bool TryTakeDamage(int damage, IActor actor)
         {

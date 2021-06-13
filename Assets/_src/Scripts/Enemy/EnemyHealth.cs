@@ -45,10 +45,14 @@ namespace KaitoMajima
         {
             onDamage?.Invoke();
             healthState.Health -= amount;
-            if(healthState.Health <= 0)
-                healthState.Health = 1;
             
+            if(healthState.Health < 0)
+            {
+                healthState.Health = 0;
+                Die();
+            }
             onHealthChanged?.Invoke(healthState);
+            
         }
         private IEnumerator Drain()
         {
@@ -61,6 +65,7 @@ namespace KaitoMajima
             }
             if(healthState.Health < 0)
                 healthState.Health = 0;
+            NeedleShooter.onRetrieveNeedle?.Invoke();
             Die();
         }
 
@@ -82,7 +87,6 @@ namespace KaitoMajima
         public void Die()
         {
             onEnemyDeath?.Invoke();
-            NeedleShooter.onRetrieveNeedle?.Invoke();
             Destroy(gameObject);
 
         }

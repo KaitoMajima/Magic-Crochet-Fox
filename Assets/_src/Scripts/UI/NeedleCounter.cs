@@ -12,10 +12,12 @@ namespace KaitoMajima
 
         [SerializeField] private TextMeshProUGUI textComponent;
         private NeedleShooter playerNeedleShooter;
-        private void Awake()
+        private void Start()
         {
             playerNeedleShooter = playerReference.Value.GetComponent<NeedleShooter>();
+            ChangeText(playerNeedleShooter.currentNeedleCount);
             playerNeedleShooter.onNeedleCountChanged += ChangeText;
+
         }
 
         private void ChangeText(int amount)

@@ -10595,12 +10595,12 @@ MonoBehaviour:
     Velocity: {x: 0, y: 0}
     Acceleration: {x: 0, y: 0}
   movementSettings:
-    MaxSpeed: 0.13
-    ZeroToMaxSpeed: 0.4
+    MaxSpeed: 0.25
+    ZeroToMaxSpeed: 0.8
     MaxSpeedToZero: 0.9
   movementInput:
     MoveVector: {x: 0, y: 0}
-  detectionRadius: 8
+  detectionRadius: 15
   playerMask:
     serializedVersion: 2
     m_Bits: 256

@@ -19,7 +19,7 @@ namespace KaitoMajima
         [SerializeField] private Transform shooterHolder;
         [SerializeField] private TransformReference reticleTarget;
         [SerializeField] private int needleMaxCount;
-        private int currentNeedleCount;
+        public int currentNeedleCount;
 
         public static Action onRetrieveNeedle;
 
