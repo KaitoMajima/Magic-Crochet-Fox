@@ -11273,7 +11273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 8579483607304873969}
-  damage: 25
+  damage: 80
 --- !u!1 &9191664216935826474
 GameObject:
   m_ObjectHideFlags: 0
