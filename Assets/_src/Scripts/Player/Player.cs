@@ -30,7 +30,7 @@ namespace KaitoMajima
         private MovementState movementState;
         private MovementInput moveInput;
         [SerializeField] private MovementSettings movementSettings = MovementSettings.Default;
-        public HealthState healthState = HealthState.Default;
+        public HealthState healthState;
         public enum PlayerState
         {
             Idle,
@@ -59,6 +59,7 @@ namespace KaitoMajima
 
 
             healthState.Health = healthState.MaxHealth;
+            
         }
 
         private void Update()

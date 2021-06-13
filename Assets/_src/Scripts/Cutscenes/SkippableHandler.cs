@@ -35,7 +35,7 @@ namespace KaitoMajima
 
         private void OnClipSkip()
         {
-            OnSkipTriggered?.Invoke();
+            //OnSkipTriggered?.Invoke();
         }
 
         private void SkipAnimation(InputAction.CallbackContext context)

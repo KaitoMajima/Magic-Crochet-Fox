@@ -10620,7 +10620,7 @@ MonoBehaviour:
     Health: 100
     MaxHealth: 100
   drainingInterval: 0.25
-  drainingRate: 2
+  drainingRate: 4
   refillingInterval: 0.45
   refillingRate: 3
   onDrainStart:

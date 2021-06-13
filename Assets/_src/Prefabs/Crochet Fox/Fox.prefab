@@ -932,7 +932,7 @@ MonoBehaviour:
     ZeroToMaxSpeed: 0.13
     MaxSpeedToZero: 0.16
   healthState:
-    Health: 0
+    Health: 500
     MaxHealth: 500
   OnDamage:
     m_PersistentCalls:
@@ -1503,7 +1503,7 @@ MonoBehaviour:
   - {x: -0.3740835, y: -1.9416296, z: 0}
   m_ShapePathHash: -1681681996
   m_Mesh: {fileID: 0}
-  m_InstanceId: -197440
+  m_InstanceId: -354690
 --- !u!114 &8688326354340246476
 MonoBehaviour:
   m_ObjectHideFlags: 0
