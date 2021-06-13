@@ -514,6 +514,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 999524267}
+  - {fileID: 4368217450053200979}
   m_Father: {fileID: 919583326187141051}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -869,6 +870,7 @@ GameObject:
   - component: {fileID: 2097234745}
   - component: {fileID: 1345174713}
   - component: {fileID: 1345174714}
+  - component: {fileID: 9205451634863224751}
   m_Layer: 8
   m_Name: Fox
   m_TagString: Untagged
@@ -925,7 +927,7 @@ MonoBehaviour:
     ZeroToMaxSpeed: 0.13
     MaxSpeedToZero: 0.16
   healthState:
-    Health: 300
+    Health: 500
     MaxHealth: 500
   OnDamage:
     m_PersistentCalls:
@@ -1297,6 +1299,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 1059367225366313559, guid: 47b641ce0766e354ba3764c2bcc6b58c, type: 3}
   spawnPoint: {fileID: 919583326187141051}
+--- !u!114 &9205451634863224751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919583326187141050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e723254ae31af7c40ba7e7354db395e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaledTransform: {fileID: 919583326187141051}
+  playOnEnable: 0
+  tweenSettings:
+    duration: 0.5
+    easeType: 22
+    useLoops: 0
+    ignoreTimeScale: 0
+    loopType: 0
+  tweenScaleValueSettings:
+    resetValues: 0
+    scaleType: 0
+    rateScale: 2
+    fixedScale: {x: 0.01, y: 0.01}
 --- !u!1 &919583326791821900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,6 +1457,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 919583326791821903}
   color: {r: 1, g: 0.32156864, b: 0, a: 1}
+--- !u!1 &4831950445176543297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4368217450053200979}
+  m_Layer: 8
+  m_Name: Falling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4368217450053200979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831950445176543297}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1189777740}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8688326353829893991
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ namespace KaitoMajima
         [SerializeField] private PlayerInput playerInput;
         [SerializeField] private Rigidbody2D playerRigidbody;
         [SerializeField] private Transform groundDetectionTransform;
+
+        [SerializeField] private Transform checkpointTransform;
         [SerializeField] private TweenController[] damageAnimation;
         [SerializeField] private PlayableDirector deathCutscene;
 
@@ -110,7 +112,10 @@ namespace KaitoMajima
 
         private void Fall()
         {
+            movementState.Velocity = Vector2.zero;
+            moveInput.MoveVector = Vector2.zero;
             OnFall?.Invoke();
+            TryTakeDamage(100, this);
         }
         public bool TryTakeDamage(int damage, IActor actor)
         {
@@ -146,6 +151,16 @@ namespace KaitoMajima
             deathCutscene?.Play();
         }
 
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            if(!collider.isTrigger)
+                return;
+            
+            if(!collider.TryGetComponent(out IslandCheckpoint island))
+                return;
+
+            checkpointTransform = island.Checkpoint;
+        }
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.yellow;
@@ -167,6 +182,10 @@ namespace KaitoMajima
             moveInput.MoveVector = Vector2.zero;
         }
 
+        public void ReturnToCheckpoint()
+        {
+            transform.position = checkpointTransform.position;
+        }
         #endregion
     }
 }
