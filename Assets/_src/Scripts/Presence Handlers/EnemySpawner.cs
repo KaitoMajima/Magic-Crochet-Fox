@@ -26,9 +26,14 @@ namespace KaitoMajima
             RandomValues.Shuffle(ref shuffledSpawnPoints);
 
             List<GameObject> enemies = new List<GameObject>();
+            int enemyCycle = 0;
             for (int i = 0; i < spawnAmount; i++)
             {
-                var enemyObj = Instantiate(enemyPrefab[0], shuffledSpawnPoints[i].position, Quaternion.identity);
+                
+                
+                var enemyObj = Instantiate(enemyPrefab[enemyCycle], shuffledSpawnPoints[i].position, Quaternion.identity);
+                enemyCycle += 1;
+                enemyCycle %= enemyPrefab.Count;
                 enemies.Add(enemyObj);
             }
             Initialized = true;

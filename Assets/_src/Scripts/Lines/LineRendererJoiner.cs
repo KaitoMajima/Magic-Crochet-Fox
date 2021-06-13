@@ -9,6 +9,8 @@ namespace KaitoMajima
         [SerializeField] private LineRenderer lineRenderer;
 
         [SerializeField] private Transform lineTransformA;
+
+        [SerializeField] private TransformReference refForTransformB;
         [SerializeField] private Transform lineTransformB;
 
         [SerializeField] private float lineStartWidth = 0.1f;
@@ -19,6 +21,9 @@ namespace KaitoMajima
         {
             endsPositions = new List<Vector3>();
 
+            if(refForTransformB != null)
+                lineTransformB = refForTransformB.Value;
+            
             endsPositions.Add(lineTransformA.position);
             endsPositions.Add(lineTransformB.position);
 

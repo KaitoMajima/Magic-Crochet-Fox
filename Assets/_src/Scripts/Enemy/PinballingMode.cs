@@ -14,6 +14,8 @@ namespace KaitoMajima
         [SerializeField] private float minVelocityToDamage;
         public static Action onPinballCount;
 
+        public UnityEvent onPinballHit;
+
         public UnityEvent onPinballArmedFire;
         public UnityEvent onPinballArmedRelease;
         
@@ -76,6 +78,7 @@ namespace KaitoMajima
                     return;
             }
             onPinballCount?.Invoke();
+            onPinballHit?.Invoke();
             enemyHealth.Damage(fixedDamage);
         }
     }

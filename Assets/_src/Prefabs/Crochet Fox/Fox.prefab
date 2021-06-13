@@ -208,7 +208,10 @@ GameObject:
   - component: {fileID: 8688326354358178917}
   - component: {fileID: 1605010700842463723}
   - component: {fileID: 8381241654159844614}
-  m_Layer: 0
+  - component: {fileID: 2097234743}
+  - component: {fileID: 2097234744}
+  - component: {fileID: 2097234745}
+  m_Layer: 8
   m_Name: Fox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,6 +435,21 @@ MonoBehaviour:
   bulletFirePoint: {fileID: 19309629}
   shooterHolder: {fileID: 919583326187141051}
   reticleTarget: {fileID: 11400000, guid: 5b0a61a8e3eef054f922f5a19166706a, type: 2}
+  onShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2097234745}
+        m_TargetAssemblyTypeName: KaitoMajima.SendImpulse, Assembly-CSharp
+        m_MethodName: TriggerImpulse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8381241654159844614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +463,76 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 1
+  explodeOnImpact: 0
+--- !u!114 &2097234743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919583326187141050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f0116310da05f418d80a8384a14819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimer: 1.25
+--- !u!114 &2097234744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919583326187141050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: a7439dcb57e563943a0d3bc2f7da7f20, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0
+      m_DecayTime: 0.5
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 1000
+    m_PropagationSpeed: 343
+--- !u!114 &2097234745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919583326187141050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1626e9a2fdb054b906c627746639d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impulseSource: {fileID: 2097234744}
+  playOnAwake: 0
 --- !u!1 &919583326791821900
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,8 +607,8 @@ SpriteRenderer:
   m_SortingLayerID: -612454531
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9b7886c4caecddb40abf149cc45fbc11, type: 3}
-  m_Color: {r: 1, g: 0.32156864, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 40eaaa507d37e734d87743e2eb8d3a2f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -563,7 +651,7 @@ MonoBehaviour:
   - {x: -0.29961765, y: -0.48210195, z: 0}
   m_ShapePathHash: -326092879
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2226
+  m_InstanceId: -2236
 --- !u!114 &8688326354340246476
 MonoBehaviour:
   m_ObjectHideFlags: 0

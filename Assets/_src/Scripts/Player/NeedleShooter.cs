@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace KaitoMajima
@@ -17,6 +18,8 @@ namespace KaitoMajima
         [SerializeField] private Transform bulletFirePoint;
         [SerializeField] private Transform shooterHolder;
         [SerializeField] private TransformReference reticleTarget;
+
+        [SerializeField] private UnityEvent onShoot;
         private InputAction fireAction;
         private InputAction aimAction;
         public Vector2 RawMousePosition { get; private set; }
@@ -61,6 +64,8 @@ namespace KaitoMajima
             var projObj = Instantiate(projectilePrefab, bulletFirePoint.position, 
             Quaternion.FromToRotation(Vector2.right, target.position - bulletFirePoint.position));
 
+            onShoot?.Invoke();
+            
             var projScript = projObj.GetComponent<Projectile>();
             projScript.originalHolder = transform;
             IsFiring = true;

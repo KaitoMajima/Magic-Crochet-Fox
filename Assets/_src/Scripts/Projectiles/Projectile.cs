@@ -14,6 +14,8 @@ namespace KaitoMajima
         [SerializeField] private float speed = 10;
         [SerializeField] private float maxAliveTime = 1;
 
+        [SerializeField] private SendAudio initialSound;
+
         private float aliveTimer;
         private Coroutine aliveCoroutine;
 
@@ -21,10 +23,15 @@ namespace KaitoMajima
 
         public UnityEvent onProjectileExplosion;
 
+        public UnityEvent onProjectileHit;
+
+
         private void Start()
         {
             aliveCoroutine = StartCoroutine(StartAliveTimer(maxAliveTime));
             projRigidBody.AddForce(speed * transform.right, ForceMode2D.Impulse);
+
+            initialSound?.TriggerSound();
         }
 
         private IEnumerator StartAliveTimer(float seconds)
@@ -64,6 +71,7 @@ namespace KaitoMajima
                     
             var projData = new ProjectileContactData(originalHolder, col.transform);
             onProjectileContact?.Invoke(projData);
+            onProjectileHit?.Invoke();
             Explode();
         }
 
